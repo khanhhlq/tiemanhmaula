@@ -1,0 +1,100 @@
+.home {
+  background-color: var(--overlay);
+  color: #fff;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.home:before {
+  content: "";
+  background: url("./images/banner-2.jpg") no-repeat center center/cover;
+  transition: 5s;
+  animation-name: animate;
+  animation-direction: alternate-reverse;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  animation-duration: 60s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@keyframes animate {
+  0% {
+    background-image: url("./images/banner-2.jpg");
+  }
+  20% {
+    background-image: url("./images/banner-1.JPG");
+  }
+  40% {
+    background-image: url("./images/banner-2.jpg");
+  }
+  60% {
+    background-image: url("./images/banner-1.JPG");
+  }
+  80% {
+    background-image: url("./images/banner-2.jpg");
+  }
+  100% {
+    background-image: url("./images/banner-1.JPG");
+  }
+}
+
+.home .content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.home .content p:first-child {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.home .content p:nth-child(2) {
+  font-size: 1.9rem;
+}
+
+.home .content p:nth-child(3) {
+  font-size: 5rem;
+  font-weight: 700;
+  padding: 0px 0px 10px 0px;
+}
+
+.home .content p:nth-child(4) {
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.home .button {
+  margin: 1rem 0;
+  width: 300px;
+  background-color: #7dc249;
+  border: none;
+  outline: none;
+  color: #333;
+}
+
+.home .button:hover {
+  background-color: #84c255;
+}
+
+@media screen and (max-width: 940px) {
+  .home .content p:nth-child(3) {
+    font-size: 2.6rem;
+  }
+
+  .home .content p:nth-child(4) {
+    font-size: 1.6rem;
+  }
+}
