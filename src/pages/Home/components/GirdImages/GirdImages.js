@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from 'react'
+import axios from 'axios'
 import './GirdImages.css'
 import gird1 from './images/gird-1.jpg'
 import gird2 from './images/gird-2.jpg'
@@ -16,15 +17,30 @@ import gird13 from './images/gird-13.jpg'
 import gird14 from './images/gird-14.jpg'
 import gird15 from './images/gird-15.jpg'
 
+const API = {
+    base: 'https://graph.facebook.com/102131145103720?fields=id,feed{attachments{title},message,story,created_time,likes}&access_token=EAADxiqvt6HUBAJMZBZByZCwqPZB2RJz8zi7PjJg9ZBVnkqgIVdEMNPbcCTUdH9blBJudKD1ofn3HGwRFrlBh5omx44NZCTScaHtjl8BpDh5LzOY2oQspbQ2L1GKlKPqHYzZAARMxpllmkgt0OLSHDvwGZBIW86Gk60HbSImJsQJAG9t5TT9ZC6zcT79p09jqClCMxD7aF13yqFIB5jPNRVhCtv1ZCxMsOmiYsZD'
+}
+
 const Demo = () => {
+    const [data, setData] = useState({});
+
+
+    axios.get(API.base).then((response) => {
+        setData(response.data)
+    })
+
+
+
+
     return (
         <>
             <div className="main">
+                {data.feed ? <p>{data.feed.data[0].message} </p> : null}
                 <h1>BỘ SƯU TẬP</h1>
                 <p>Hãy ngắm nhìn thật lâu và chiêm ngưỡng nó</p>
                 <div className="gallery">
                     <div className="img">
-                        <img src={gird5} />
+                        {/* <img src={gird5} /> */}
                     </div>
                     <div className="img">
                         <img src={gird2} />
